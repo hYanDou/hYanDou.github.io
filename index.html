@@ -96,12 +96,12 @@
 </li>
 </ol>
 <img src="/images/图片引入方法详解.jpg" title="[图片引入方法详解]">
-<p>这样做的好处是，图片资源的管理比较有序。坏处是给初学者带来一定的疑惑，而且在markdown的编辑器里，无法实时预览。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(&apos;Hello World!&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>这样做的好处是，图片资源的管理比较有序。坏处是给初学者带来一定的疑惑，而且在markdown的编辑器里，无法实时预览。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/08/hexo搭建博客（二）/" data-id="cji5nmg7w0000swraq2bmin5e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/08/hexo搭建博客（二）/" data-id="cji5pgdjo0001worahts6hnsx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -162,12 +162,12 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g        |（简写 hexo g） 重新编译</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy   |同步到github</span><br></pre></td></tr></table></figure>
 <h4 id="再将代码同步github"><a href="#再将代码同步github" class="headerlink" title="再将代码同步github"></a>再将代码同步github</h4><p>$ git add .<br>$ git commit -m ‘first commit’<br>$ git push -u origin master</p>
-<h3 id="在搭建的时候的遇坑"><a href="#在搭建的时候的遇坑" class="headerlink" title="在搭建的时候的遇坑"></a>在搭建的时候的遇坑</h3><p>1、jQuery is not defined</p>
+<h3 id="在搭建的时候的遇坑"><a href="#在搭建的时候的遇坑" class="headerlink" title="在搭建的时候的遇坑"></a>在搭建的时候的遇坑</h3><p>1、jQuery is not defined，解决：<br>要改变js/css，可以在hexo的主题内<code>layout</code>目录中对应的.ejs文件里添加或修改。比如默认的landscape主题，若想要把css添加到每一页中的话，可以把它加在<code>themes/landscape/layout/_partial/head.ejs</code>中。若想修改固定引入的jquery的不正确路径，<code>&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js&quot;&gt;&lt;/script&gt;</code>改成（ <a href="http://www.jq22.com/cdn/" target="_blank" rel="noopener">百度的jquery的cdn路径</a> ）<code>&lt;script src=&quot;http://libs.baidu.com/jquery/2.0.0/jquery.min.js&quot;&gt;&lt;/script&gt;</code></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/08/hexo搭建博客/" data-id="cji5nmg8a0002swra1qxkrymf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/08/hexo搭建博客/" data-id="cji5pgdjf0000worazwuu9p6w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -212,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/07/hello-world/" data-id="cji5nmg840001swraltdzafmf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/07/hello-world/" data-id="cji5pgdju0002woraditfo35s" class="article-share-link">Share</a>
       
       
     </footer>
