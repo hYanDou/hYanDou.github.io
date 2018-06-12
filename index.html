@@ -314,18 +314,103 @@
 <ul>
 <li>Muse : 默认Scheme，这是next最初版本，黑白主调+大量留白</li>
 <li>Mist : Muse的紧凑版本，整洁有序的单栏外观</li>
-<li>Pisces : 双栏Scheme，清新<br>Scheme通过更改 <code>主题配置文件</code> ，搜素scheme关键字。有三行scheme的配置，将需要启用的scheme前注释 <code>#</code> 去掉即可。<blockquote>
-<ul>
-<li>例如，选择 Gemini</li>
+<li>Pisces : 双栏Scheme，清新<br>Scheme通过更改 <code>主题配置文件</code> ，搜素scheme关键字。有三行scheme的配置，将需要启用的scheme前注释 <code>#</code> 去掉即可。</li>
 </ul>
+<blockquote>
+<p>例如，选择 Gemini :</p>
 </blockquote>
-  #scheme: Muse<br>  #scheme: Mist<br>  #scheme: Pisces<br>  scheme: Gemini<h4 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h4>修改 <code>站点配置文件</code> ，将language设置成所需要的语言。<blockquote>
-<ul>
-<li>例如，选用简体中文<br>language: zh-Hans</li>
-</ul>
+<pre><code>#scheme: Muse
+#scheme: Mist
+#scheme: Pisces
+scheme: Gemini
+</code></pre><blockquote>
 </blockquote>
-</li>
-</ul>
+<h4 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h4><p>修改 <code>站点配置文件</code> ，将language设置成所需要的语言。</p>
+<blockquote>
+<p>例如，选用简体中文 :</p>
+</blockquote>
+<pre><code>language: zh-Hans
+</code></pre><blockquote>
+</blockquote>
+<p>目前 next 支持的语言如以下表格所示：</p>
+<table>
+<thead>
+<tr>
+<th>语言</th>
+<th style="text-align:center">代码</th>
+<th>设定实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English</td>
+<td style="text-align:center">en</td>
+<td>language: en</td>
+</tr>
+<tr>
+<td>简体中文</td>
+<td style="text-align:center">zh-Hans</td>
+<td>language: zh-Hans</td>
+</tr>
+<tr>
+<td>Français</td>
+<td style="text-align:center">fr-FR</td>
+<td>language: fr-FR</td>
+</tr>
+<tr>
+<td>Português</td>
+<td style="text-align:center">pt</td>
+<td>language: pt or language: pt-BR</td>
+</tr>
+<tr>
+<td>繁體中文</td>
+<td style="text-align:center">zh-hk 或者 zh-tw</td>
+<td>language: zh-hk</td>
+</tr>
+<tr>
+<td>Русский язык</td>
+<td style="text-align:center">ru</td>
+<td>language: ru</td>
+</tr>
+<tr>
+<td>Deutsch</td>
+<td style="text-align:center">de</td>
+<td>language: de</td>
+</tr>
+<tr>
+<td>日本語</td>
+<td style="text-align:center">ja</td>
+<td>language: ja</td>
+</tr>
+<tr>
+<td>Indonesian</td>
+<td style="text-align:center">id</td>
+<td>language: id</td>
+</tr>
+<tr>
+<td>Korean</td>
+<td style="text-align:center">ko</td>
+<td>language: ko</td>
+</tr>
+</tbody>
+</table>
+<h4 id="设置菜单"><a href="#设置菜单" class="headerlink" title="设置菜单"></a>设置菜单</h4><p>菜单配置包括三部分，第一是菜单项（ 名称和链接 ），第二是菜单项的显示文本，第三是菜单项对应的图标。nexT 使用的是 <a href="http://fontawesome.io" target="_blank" rel="noopener">Font Awesome</a> 提供的图标， Font Awesome 提供了 600+ 的<a href="https://fontawesome.com/icons?from=io" target="_blank" rel="noopener">图标</a>，可以满足绝大的多数的场景，同时无须担心在 Retina 屏幕下 图标模糊的问题。<br>编辑 <code>主题配置文件</code> ，修改内容：</p>
+<ol>
+<li>设置菜单内容，对应 <code>menu</code> 。菜单内容的设置格式是：<code>item name: link</code> 。其中 <code>item name</code> 是一个名称。这个名称并不直接显示在页面上，它用于匹配图标以及翻译。</li>
+</ol>
+<blockquote>
+<p>例如：菜单配置</p>
+</blockquote>
+<pre><code>menu:
+home: /
+archives: /archives
+#about: /about
+#categories: /categories
+tags: /tags
+#commonweal: /404.html
+</code></pre><blockquote>
+</blockquote>
+<p>next默认的菜单项有（ 标注 <i class="fas fa-exclamation-circle"></i> 的项表示需要手动创建这个页面 ）</p>
 
           
         
@@ -574,7 +659,7 @@
       
         
           
-            <h2 id="准备活"><a href="#准备活" class="headerlink" title="准备活"></a>准备活</h2><p>1、<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git安装</a>。命令前面带有$符号的，就是使用的git版本管理工具【分享一本在线版本git学习资料<a href="http://iissnan.com/progit/" target="_blank" rel="noopener">《Pro Git》</a>】<br>2、<a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js安装</a>。node -v 查看是否安装成功 若成功返回版本号<br>3、搭建hexo<br>4、能使用markdown语言编辑博客。（ <a href="http://www.markdown.cn/" target="_blank" rel="noopener">markdown</a>是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。如果不熟悉，可以使用<a href="https://daringfireball.net/projects/markdown/dingus" target="_blank" rel="noopener">在线编辑的学习工具</a> 练习练习。）</p>
+            <h2 id="准备活"><a href="#准备活" class="headerlink" title="准备活"></a>准备活</h2><p>1、<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git安装</a>。命令前面带有$符号的，就是使用的git版本管理工具【分享一本在线版本git学习资料<a href="http://iissnan.com/progit/" target="_blank" rel="noopener">《Pro Git》</a>】<br>2、<a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js安装</a>。node -v 查看是否安装成功 若成功返回版本号<br>3、搭建hexo<br>4、能使用markdown语言编辑博客。（ <a href="http://www.markdown.cn/" target="_blank" rel="noopener">markdown</a>是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。如果不熟悉，可以使用<a href="https://daringfireball.net/projects/markdown/dingus" target="_blank" rel="noopener">在线编辑的学习工具</a> 练习练习。或者<a href="https://www.zybuluo.com/mdeditor?url=https%3A%2F%2Fwww.zybuluo.com%2Fstatic%2Feditor%2Fmd-help.markdown#12" target="_blank" rel="noopener">cmd 在线markdown 编辑阅读器</a>）</p>
 <h3 id="①-安装hexo-（-hexo-是高效的静态站点生成框架-通过-hexo-你可以轻松地使用-Markdown-编写文章）"><a href="#①-安装hexo-（-hexo-是高效的静态站点生成框架-通过-hexo-你可以轻松地使用-Markdown-编写文章）" class="headerlink" title="① 安装hexo （ hexo 是高效的静态站点生成框架,通过 hexo 你可以轻松地使用 Markdown 编写文章）"></a>① 安装hexo （ hexo 是高效的静态站点生成框架,通过 hexo 你可以轻松地使用 Markdown 编写文章）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure>
 <h3 id="②-查看是否安装成功"><a href="#②-查看是否安装成功" class="headerlink" title="② 查看是否安装成功"></a>② 查看是否安装成功</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
 <h3 id="③-进入已经存在的空文件夹名"><a href="#③-进入已经存在的空文件夹名" class="headerlink" title="③ 进入已经存在的空文件夹名"></a>③ 进入已经存在的空文件夹名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> myBlog</span><br></pre></td></tr></table></figure>
