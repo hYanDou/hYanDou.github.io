@@ -199,6 +199,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
 
       
     </ul>
@@ -453,6 +463,45 @@ tags: /tags
 </tbody>
 </table>
 <img src="/images/set_fontAwesome.jpg" width="500" height="450" title="[在markdown中使用fontAwesome]">
+<ol start="2">
+<li>设置菜单项的显示文本。在第一步中设置的菜单的名称并不直接用于界面上的展示。hexo 在生成的时候将使用 这个名称查找对应的语言翻译，并提取显示文本。这些翻译文本放置在 hexT 主题目录下的 <code>languages/{language}.yml</code> （ <code>{language}</code> 为你所使用的语言 ）。</li>
+</ol>
+<blockquote>
+<p>以简体中文为例，若你需要添加一个菜单项，比如 <code>something</code> 。那么就需要修改简体中文对应的翻译文件 <code>languages/zh-Hans.yml</code> ，在 <code>menu</code> 字段下添加一项：</p>
+</blockquote>
+<pre><code>menu:
+home: 首页
+archives: 归档
+categories: 分类
+tags: 标签
+about: 关于
+search: 搜索
+commonweal: 公益404
+something: 有料
+</code></pre><blockquote>
+</blockquote>
+<ol start="3">
+<li>设定菜单项的图标，对应的字段是 <code>menu_icons</code>。 此设定格式是 <code>item name: icon name</code> ，其中 <code>item name</code> 与上一步所配置的菜单名字对应，<code>icon name</code> 是 Font Awesome 图标的 名字。而 <code>enable</code> 可用于控制是否显示图标，你可以设置成 <code>false</code> 来去掉图标。</li>
+</ol>
+<blockquote>
+<p>菜单图标配置示例</p>
+</blockquote>
+<pre><code>menu_icons:
+enable: true
+# Icon Mapping.
+home: home
+about: user
+categories: th
+tags: tags
+archives: archive
+commonweal: heartbeat
+</code></pre><blockquote>
+</blockquote>
+<blockquote>
+</blockquote>
+<p>在菜单图标开启的情况下，如果菜单项与菜单未匹配（没有设置或者无效的 Font Awesome 图标名字） 的情况下，next 将会使用 <i class="fa fa-exclamation-circle"></i> 作为图标。<br>注意键值（如 home）的大小写要严格匹配</p>
+<blockquote>
+</blockquote>
 
           
         
