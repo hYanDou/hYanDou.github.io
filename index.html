@@ -131,6 +131,16 @@
 
 
 
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1403dee0e48be4dc2708b44b4d5313aa";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -247,7 +257,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="黄小豆">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/usertx.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -414,9 +424,9 @@ scheme: Gemini
 <pre><code>menu:
 home: /
 archives: /archives
-#about: /about
+about: /about
 #categories: /categories
-tags: /tags
+#tags: /tags
 #commonweal: /404.html
 </code></pre><blockquote>
 </blockquote>
@@ -467,17 +477,17 @@ tags: /tags
 <li>设置菜单项的显示文本。在第一步中设置的菜单的名称并不直接用于界面上的展示。hexo 在生成的时候将使用 这个名称查找对应的语言翻译，并提取显示文本。这些翻译文本放置在 hexT 主题目录下的 <code>languages/{language}.yml</code> （ <code>{language}</code> 为你所使用的语言 ）。</li>
 </ol>
 <blockquote>
-<p>以简体中文为例，若你需要添加一个菜单项，比如 <code>something</code> 。那么就需要修改简体中文对应的翻译文件 <code>languages/zh-Hans.yml</code> ，在 <code>menu</code> 字段下添加一项：</p>
+<p>以简体中文为例，若你需要添加一个菜单项，比如 <code>about</code> 。那么就需要修改简体中文对应的翻译文件 <code>languages/zh-Hans.yml</code> ，在 <code>menu</code> 字段下添加一项：</p>
 </blockquote>
 <pre><code>menu:
 home: 首页
 archives: 归档
-categories: 分类
-tags: 标签
 about: 关于
-search: 搜索
-commonweal: 公益404
-something: 有料
+#categories: 分类
+#tags: 标签
+#search: 搜索
+#commonweal: 公益404
+#something: 有料
 </code></pre><blockquote>
 </blockquote>
 <ol start="3">
@@ -490,18 +500,81 @@ something: 有料
 enable: true
 # Icon Mapping.
 home: home
-about: user
-categories: th
-tags: tags
 archives: archive
-commonweal: heartbeat
+about: user
+#categories: th
+#tags: tags
+#commonweal: heartbeat
 </code></pre><blockquote>
 </blockquote>
 <blockquote>
 </blockquote>
-<p>在菜单图标开启的情况下，如果菜单项与菜单未匹配（没有设置或者无效的 Font Awesome 图标名字） 的情况下，next 将会使用 <i class="fa fa-exclamation-circle"></i> 作为图标。<br>注意键值（如 home）的大小写要严格匹配</p>
+<pre><code>注意：在菜单图标开启的情况下，如果菜单项与菜单未匹配（没有设置或者无效的 Font Awesome 图标名字） 的情况下，next 将会使用 &lt;i class=&quot;fa fa-exclamation-circle&quot;&gt;&lt;/i&gt; 作为图标。
+注意键值（如 home）的大小写要严格匹配
+</code></pre><blockquote>
+</blockquote>
+<ol start="4">
+<li>通过设定菜单的内容，实现效果。现在点击博客中的 <code>关于</code> 或 <code>about</code> ,还会显示 <code>Cannot GET /about/</code> ，因为还没有创建这个页面。在命令行中 <code>hexo new page &quot;about&quot;</code>，此时 <code>source</code> 文件夹中自动创建了 <code>about</code> 文件夹，此文件夹中包含 <code>index</code> 文件夹和 <code>index.md</code> 文件。根据自己需求修改 <code>.md</code> 文件，再次浏览博客的关于页面，就可以正常显示了。</li>
+</ol>
+<h4 id="设置侧栏"><a href="#设置侧栏" class="headerlink" title="设置侧栏"></a>设置侧栏</h4><p>默认情况下，侧栏仅在文章页面（ 拥有目录列表 ）时才显示，并放置于右侧位置。 可以通过修改 <code>主题配置文件</code> 中的 <code>sidebar</code> 字段来控制侧栏的行为。侧栏的设置包括两个部分，其一是侧栏的位置， 其二是侧栏显示的时机。</p>
+<ol>
+<li><p>设置侧栏的位置，修改 <code>sidebar.position</code> 的值，支持的选项有：</p>
+<ul>
+<li>left - 靠左</li>
+<li>right - 靠右</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>目前仅 Pisces Scheme 支持 position 配置。影响版本5.0.0及更低版本。</p>
+</blockquote>
+<pre><code>sidebar:
+position: left
+</code></pre><blockquote>
+</blockquote>
+<ol start="2">
+<li><p>设置侧栏显示的时机，修改 <code>sidebar.display</code> 的值，支持的选项有：</p>
+<ul>
+<li>post - 默认行为，在文章页面显示（ 拥有目录列表 ）</li>
+<li>always - 在所有页面中都显示</li>
+<li>hide - 在所有页面中都隐藏（ 可以手动展开 ）</li>
+<li>remove - 完全移除</li>
+</ul>
+</li>
+</ol>
 <blockquote>
 </blockquote>
+<pre><code>sidebar:
+display: post
+</code></pre><blockquote>
+</blockquote>
+<h4 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h4><p>编辑 <code>主题配置文件</code> ，修改字段 <code>avatar</code> ，值设置成头像的链接地址。其链接地址可以是：</p>
+<table>
+<thead>
+<tr>
+<th>地址</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>完整的互联网 URI</td>
+<td><a href="http://example.com/avatar.png" target="_blank" rel="noopener">http://example.com/avatar.png</a></td>
+</tr>
+<tr>
+<td>站内地址</td>
+<td>将头像放置主题目录下的 <code>source/uploads/</code> （新建 uploads 目录若不存在） 配置为：<code>avatar: /uploads/avatar.png</code> 或者 放置在 <code>source/images/</code> 目录下 配置为：<code>avatar: /images/avatar.png</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>头像设置示例</p>
+</blockquote>
+<pre><code>avatar: /images/usertx.png
+</code></pre><blockquote>
+</blockquote>
+<h4 id="设置作者名称"><a href="#设置作者名称" class="headerlink" title="设置作者名称"></a>设置作者名称</h4><p>编辑 <code>站点配置文件</code> ，设置 <code>author</code> 为你的昵称。</p>
+<h4 id="站点描述"><a href="#站点描述" class="headerlink" title="站点描述"></a>站点描述</h4><p>编辑 <code>站点配置文件</code> ，设置 <code>description</code> 字段为你的站点描述。</p>
 
           
         
@@ -555,7 +628,7 @@ commonweal: heartbeat
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="黄小豆">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/usertx.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -684,7 +757,7 @@ commonweal: heartbeat
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="黄小豆">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/usertx.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -832,7 +905,7 @@ commonweal: heartbeat
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="黄小豆">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/usertx.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -976,6 +1049,10 @@ commonweal: heartbeat
       <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/usertx.jpg"
+                alt="黄小豆" />
             
               <p class="site-author-name" itemprop="name">黄小豆</p>
               <p class="site-description motion-element" itemprop="description">前端技术share</p>
