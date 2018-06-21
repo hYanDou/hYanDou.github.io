@@ -421,9 +421,17 @@ algolia_search:
 </code></pre><blockquote>
 </blockquote>
 <p>将 <code>enable</code> 改为 <code>true</code> 即可，根据需要调整 <code>labels</code> 中的各值。</p>
-<h4 id="集成中遇到-b-u-g"><a href="#集成中遇到-b-u-g" class="headerlink" title="集成中遇到 b u g"></a>集成中遇到 b u g</h4><p>Invalid Application-ID or API key</p>
+<h4 id="集成中遇到-b-u-g"><a href="#集成中遇到-b-u-g" class="headerlink" title="集成中遇到 b u g"></a>集成中遇到 b u g</h4><ol>
+<li>Invalid Application-ID or API key</li>
+</ol>
 <img src="/images/algolia_6.jpg" width="700" height="450" title="[集成中的报错]">
 <p>原因：<code>站点配置文件</code> 中 <code>algolia</code> 的 <code>applicationID</code> 或者 <code>apiKey</code> 错了<br>解决：重新看下 algolia 生成的 Application ID 或者 API Key</p>
+<ol start="2">
+<li>搜索结果的链接不正确</li>
+</ol>
+<img src="/images/search_1.jpg" width="700" height="550" title="[搜索结果链接1]">
+<img src="/images/search_2.jpg" width="700" height="350" title="[搜索结果链接2]">
+<p>原因：<code>站点配置文件</code> 中 <code>url</code>没修改,默认 <code>http://yoursite.com</code> ; 连接<a href="http://www.algolia.com" target="_blank" rel="noopener">www.algolia.com</a> ; 没有与服务器没重启;<br>解决：<code>url: 自己的网址或者本地localhost:4000</code>; <code>set HEXO_ALGOLIA_INDEXING_KEY=你的Search-Only API key</code> ; <code>hexo algolia</code> ; <code>hexo s</code> 重启服务器;</p>
 
           
         
