@@ -389,68 +389,20 @@
       
         
           
-            <h2 id="集成常用的第三方服务"><a href="#集成常用的第三方服务" class="headerlink" title="集成常用的第三方服务"></a>集成常用的第三方服务</h2><h3 id="百度统计"><a href="#百度统计" class="headerlink" title="百度统计"></a>百度统计</h3><ol>
-<li>登录<a href="https://tongji.baidu.com/web/25754937/welcome/login" target="_blank" rel="noopener">百度统计</a>，网站列表中创建需要统计的网站域名<img src="/images/baidu_tj.jpg" width="700" height="350" title="[在百度统计中新增站点]"></li>
-<li>复制 <code>hm.js?</code> 后的那串统计脚本id，如：<img src="/images/baidu_analytics.jpg" width="700" height="450"></li>
-<li>编辑 <code>主题配置文件</code> ，修改字段 <code>baidu_analytics</code> 字段，值设置成刚才复制的百度统计脚本id。   </li>
-</ol>
-<h3 id="阅读统计次数（-LeanCloud-）"><a href="#阅读统计次数（-LeanCloud-）" class="headerlink" title="阅读统计次数（ LeanCloud ）"></a>阅读统计次数（ LeanCloud ）</h3><p>请参考<a href="https://notes.wanghao.work/2015-10-21-为NexT主题添加文章阅读量统计功能.html#配置LeanCloud" target="_blank" rel="noopener">为next主题添加文章阅读量统计功能</a>  </p>
-<h3 id="Algolia-搜索（-站内搜索文章-）"><a href="#Algolia-搜索（-站内搜索文章-）" class="headerlink" title="Algolia 搜索（ 站内搜索文章 ）"></a>Algolia 搜索（ 站内搜索文章 ）</h3><p>请参考： <a href="http://theme-next.iissnan.com/third-party-services.html#algolia-search" target="_blank" rel="noopener">第三方服务 - Algolia</a><br>注：Algolia搜索在版本<strong> 5.1.0 </strong>中引入，要使用此功能请确保所使用的 next 版本在此之后。</p>
-<h4 id="注册-Algolia账号"><a href="#注册-Algolia账号" class="headerlink" title="注册 Algolia账号"></a>注册 Algolia账号</h4><p><a href="https://www.algolia.com/" target="_blank" rel="noopener">algolia登录页</a>，可以注册新账户，也可以使用 GitHub 或者 Google 账户直接登录。注册后的 14 天内拥有所有功能（包括收费类别的）。之后若未续费会自动降级为免费账户，免费账户 总共有 10000 条记录，每月有 100000 的可以操作数。</p>
-<h4 id="注册完成后，创建一个新的Index，这个index-name之后会用到"><a href="#注册完成后，创建一个新的Index，这个index-name之后会用到" class="headerlink" title="注册完成后，创建一个新的Index，这个index name之后会用到"></a>注册完成后，创建一个新的Index，这个index name之后会用到</h4><img src="/images/algolia_1.jpg" width="700" height="450">
-<img src="/images/algolia_2.jpg" width="700" height="450">
-<p>此时这个 index 里未包含任何数据。 接下来需要安装 Hexo Algolia 扩展， 这个扩展的功能是搜集站点的内容并通过 API 发送给 Algolia。前往站点根目录，执行命令安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-algolia --save  # 目前最新版本是1.2.5，下面的操作都是基于这个版本的文档</span><br></pre></td></tr></table></figure></p>
-<h4 id="获取-Key，更新站点根目录配置"><a href="#获取-Key，更新站点根目录配置" class="headerlink" title="获取 Key，更新站点根目录配置"></a>获取 Key，更新站点根目录配置</h4><img src="/images/algolia_3.jpg" width="700" height="450">
-<p>前往站点根目录打开_config.yml添加以下代码</p>
-<blockquote>
-</blockquote>
-<pre><code># Algolia Search API Key
-algolia:
-    applicationID: &apos;你的Application ID&apos;
-    apiKey: &apos;你的Search-Only API Key&apos;
-    indexName: &apos;输入刚才创建index name&apos;
-</code></pre><blockquote>
-</blockquote>
-<h4 id="修改Algolia搜索ACL（访问控制列表）"><a href="#修改Algolia搜索ACL（访问控制列表）" class="headerlink" title="修改Algolia搜索ACL（访问控制列表）"></a>修改Algolia搜索ACL（访问控制列表）</h4><img src="/images/algolia_4.jpg" width="700" height="450">
-<p>保存即可。如果缺少这一步，会导致集成失败，报错 <code>Not enough rights to update an object near</code>。</p>
-<h4 id="操作完成后执行命令"><a href="#操作完成后执行命令" class="headerlink" title="操作完成后执行命令"></a>操作完成后执行命令</h4><blockquote>
-</blockquote>
-<pre><code>export(windows 为 set) (Powershell 用 $env:) HEXO_ALGOLIA_INDEXING_KEY=你的Search-Only API key
+          集成常用的第三方服务百度统计
+登录百度统计，网站列表中创建需要统计的网站域名
+复制 hm.js? 后的那串统计脚本id，如：
+编辑 主题配置文件 ，修改字段 baidu_analytics 字段，值设置成刚才复制的百度统计脚本id。   
 
-set (Mac和git bash 为 export) (Powershell 用 $env:) HEXO_ALGOLIA_INDEXING_KEY=你的Search-Only API key     #查看是否设置成功如果没有值就设置失败
-
-hexo algolia
-</code></pre><blockquote>
-</blockquote>
-<img src="/images/algolia_5.jpg" width="700" height="450" title="[成功设置示例]">
-<h4 id="成功后修改-next-主题配置文件"><a href="#成功后修改-next-主题配置文件" class="headerlink" title="成功后修改 next 主题配置文件"></a>成功后修改 next 主题配置文件</h4><p>更改 next <code>主题配置文件</code>，找到 <code>algolia_search</code> 字段：</p>
-<blockquote>
-</blockquote>
-<pre><code># Algolia Search
-algolia_search:
-    enable: true
-    hits:
-        per_page: 10
-    labels:
-        input_placeholder: 请输入要搜索的内容
-        hits_empty: &quot;我们没有找到任何搜索结果: ${query}&quot;
-        hits_stats: &quot;找到约 ${hits} 条结果（用时 ${time} ms）&quot;
-</code></pre><blockquote>
-</blockquote>
-<p>将 <code>enable</code> 改为 <code>true</code> 即可，根据需要调整 <code>labels</code> 中的各值。</p>
-<h4 id="集成中遇到-b-u-g"><a href="#集成中遇到-b-u-g" class="headerlink" title="集成中遇到 b u g"></a>集成中遇到 b u g</h4><ol>
-<li>Invalid Application-ID or API key</li>
-</ol>
-<img src="/images/algolia_6.jpg" width="700" height="450" title="[集成中的报错]">
-<p>原因：<code>站点配置文件</code> 中 <code>algolia</code> 的 <code>applicationID</code> 或者 <code>apiKey</code> 错了<br>解决：重新看下 algolia 生成的 Application ID 或者 API Key</p>
-<ol start="2">
-<li>搜索结果的链接不正确</li>
-</ol>
-<img src="/images/search_1.jpg" width="700" height="550" title="[搜索结果链接1]">
-<img src="/images/search_2.jpg" width="700" height="350" title="[搜索结果链接2]">
-<p>原因：<code>站点配置文件</code> 中 <code>url</code>没修改,默认 <code>http://yoursite.com</code> ; 连接<a href="http://www.algolia.com" target="_blank" rel="noopener">www.algolia.com</a> ; 没有与服务器没重启;<br>解决：<code>url: 自己的网址或者本地localhost:4000</code>; <code>set HEXO_ALGOLIA_INDEXING_KEY=你的Search-Only API key</code> ; <code>hexo algolia</code> ; <code>hexo s</code> 重启服务器;</p>
-
-          
+阅读统计次数（ LeanCloud ）请参考为next主题
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/13/hexo搭建博客（四）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -579,325 +531,16 @@ algolia_search:
       
         
           
-            <h2 id="Next主题介绍"><a href="#Next主题介绍" class="headerlink" title="Next主题介绍"></a>Next主题介绍</h2><p>在 hexo 中有两份主要的配置文件，其名称都是 _config.yml。 其中，一份位于站点根目录下，主要包含 hexo 本身的配置（  以下简称为：<code>站点配置文件</code>）；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项（ 以下简称为：<code>主题配置文件</code> ）。</p>
-<h3 id="安装Next主题"><a href="#安装Next主题" class="headerlink" title="安装Next主题"></a>安装Next主题</h3><p>安装主题的方式非常简单，只需要将主题文件拷贝至站点目录的 themes 目录下， 然后修改下配置文件即可。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> your-hexo-site</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<h3 id="启用主题"><a href="#启用主题" class="headerlink" title="启用主题"></a>启用主题</h3><p>与所有 hexo 主题启用的模式一样。 当 克隆/下载 完成后，打开 <code>站点配置文件</code>， 找到 theme 字段，并将其值更改为 next。</p>
-<p><code>theme: next</code></p>
-<p>到此，Next主题安装完成。下一步将验证主题是否启用。在切换主题之后、验证之前，最好是用<code>hexo clean</code>清下hexo的缓存</p>
-<h3 id="验证主题"><a href="#验证主题" class="headerlink" title="验证主题"></a>验证主题</h3><p>启动hexo本地站点（ <code>hexo s</code> ），也可以开启调试模式（ <code>hexo s --debug</code> ），便于观察命令行输出是否有异常信息，这些信息可以很好定位错误。此时打开浏览器访问<code>http://localhost:4000</code>，不出意外即可正常运行。</p>
-<h3 id="主题设定"><a href="#主题设定" class="headerlink" title="主题设定"></a>主题设定</h3><h4 id="选择Scheme"><a href="#选择Scheme" class="headerlink" title="选择Scheme"></a>选择Scheme</h4><p>Scheme是next提供的一种特性，可以通过Scheme，使next提供不同外观。目前next支持四种Scheme：</p>
-<ul>
-<li>Muse : 默认Scheme，这是next最初版本，黑白主调+大量留白</li>
-<li>Mist : Muse的紧凑版本，整洁有序的单栏外观</li>
-<li>Pisces : 双栏Scheme，清新<br>Scheme通过更改 <code>主题配置文件</code> ，搜素scheme关键字。有三行scheme的配置，将需要启用的scheme前注释 <code>#</code> 去掉即可。</li>
-</ul>
-<blockquote>
-<p>例如，选择 Gemini :</p>
-</blockquote>
-<pre><code>#scheme: Muse
-#scheme: Mist
-#scheme: Pisces
-scheme: Gemini
-</code></pre><blockquote>
-</blockquote>
-<h4 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h4><p>修改 <code>站点配置文件</code> ，将language设置成所需要的语言。</p>
-<blockquote>
-<p>例如，选用简体中文 :</p>
-</blockquote>
-<pre><code>language: zh-Hans
-</code></pre><blockquote>
-</blockquote>
-<p>目前 next 支持的语言如以下表格所示：</p>
-<table>
-<thead>
-<tr>
-<th>语言</th>
-<th style="text-align:center">代码</th>
-<th>设定实例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>English</td>
-<td style="text-align:center">en</td>
-<td>language: en</td>
-</tr>
-<tr>
-<td>简体中文</td>
-<td style="text-align:center">zh-Hans</td>
-<td>language: zh-Hans</td>
-</tr>
-<tr>
-<td>Français</td>
-<td style="text-align:center">fr-FR</td>
-<td>language: fr-FR</td>
-</tr>
-<tr>
-<td>Português</td>
-<td style="text-align:center">pt</td>
-<td>language: pt or language: pt-BR</td>
-</tr>
-<tr>
-<td>繁體中文</td>
-<td style="text-align:center">zh-hk 或者 zh-tw</td>
-<td>language: zh-hk</td>
-</tr>
-<tr>
-<td>Русский язык</td>
-<td style="text-align:center">ru</td>
-<td>language: ru</td>
-</tr>
-<tr>
-<td>Deutsch</td>
-<td style="text-align:center">de</td>
-<td>language: de</td>
-</tr>
-<tr>
-<td>日本語</td>
-<td style="text-align:center">ja</td>
-<td>language: ja</td>
-</tr>
-<tr>
-<td>Indonesian</td>
-<td style="text-align:center">id</td>
-<td>language: id</td>
-</tr>
-<tr>
-<td>Korean</td>
-<td style="text-align:center">ko</td>
-<td>language: ko</td>
-</tr>
-</tbody>
-</table>
-<h4 id="设置菜单"><a href="#设置菜单" class="headerlink" title="设置菜单"></a>设置菜单</h4><p>菜单配置包括三部分，第一是菜单项（ 名称和链接 ），第二是菜单项的显示文本，第三是菜单项对应的图标。nexT 使用的是 <a href="http://fontawesome.io" target="_blank" rel="noopener">Font Awesome</a> 提供的图标， Font Awesome 提供了 600+ 的<a href="https://fontawesome.com/icons?from=io" target="_blank" rel="noopener">图标</a>，可以满足绝大的多数的场景，同时无须担心在 Retina 屏幕下 图标模糊的问题。<br>编辑 <code>主题配置文件</code> ，修改内容：</p>
-<ol>
-<li>设置菜单内容，对应 <code>menu</code> 。菜单内容的设置格式是：<code>item name: link</code> 。其中 <code>item name</code> 是一个名称。这个名称并不直接显示在页面上，它用于匹配图标以及翻译。</li>
-</ol>
-<blockquote>
-<p>例如：菜单配置</p>
-</blockquote>
-<pre><code>menu:
-home: /
-archives: /archives
-about: /about
-#categories: /categories
-#tags: /tags
-#commonweal: /404.html
-</code></pre><blockquote>
-</blockquote>
-<p>next默认的菜单项有（ 标注 <i class="fa fa-exclamation-circle"></i> 的项表示需要手动创建这个页面 ）</p>
-<table>
-<thead>
-<tr>
-<th>键值</th>
-<th style="text-align:center">设定值</th>
-<th>显示文本（ 简体中文 ）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>home</td>
-<td style="text-align:center">home: /</td>
-<td>主页</td>
-</tr>
-<tr>
-<td>archives</td>
-<td style="text-align:center">archives: /archives</td>
-<td>归档页</td>
-</tr>
-<tr>
-<td>categories</td>
-<td style="text-align:center">categories: /categories</td>
-<td>分类页 <i class="fa fa-exclamation-circle"></i> </td>
-</tr>
-<tr>
-<td>tags</td>
-<td style="text-align:center">tags: /tags</td>
-<td>标签页 <i class="fa fa-exclamation-circle"></i></td>
-</tr>
-<tr>
-<td>about</td>
-<td style="text-align:center">about: /about</td>
-<td>关于页面 <i class="fa fa-exclamation-circle"></i></td>
-</tr>
-<tr>
-<td>commonweal</td>
-<td style="text-align:center">commonweal: /404.html</td>
-<td>公益 404 <i class="fa fa-exclamation-circle"></i></td>
-</tr>
-</tbody>
-</table>
-<img src="/images/set_fontAwesome.jpg" width="700" height="450" title="[在markdown中使用fontAwesome]">
-<ol start="2">
-<li>设置菜单项的显示文本。在第一步中设置的菜单的名称并不直接用于界面上的展示。hexo 在生成的时候将使用 这个名称查找对应的语言翻译，并提取显示文本。这些翻译文本放置在 hexT 主题目录下的 <code>languages/{language}.yml</code> （ <code>{language}</code> 为你所使用的语言 ）。</li>
-</ol>
-<blockquote>
-<p>以简体中文为例，若你需要添加一个菜单项，比如 <code>about</code> 。那么就需要修改简体中文对应的翻译文件 <code>languages/zh-Hans.yml</code> ，在 <code>menu</code> 字段下添加一项：</p>
-</blockquote>
-<pre><code>menu:
-home: 首页
-archives: 归档
-about: 关于
-#categories: 分类
-#tags: 标签
-#search: 搜索
-#commonweal: 公益404
-#something: 有料
-</code></pre><blockquote>
-</blockquote>
-<ol start="3">
-<li>设定菜单项的图标，对应的字段是 <code>menu_icons</code>。 此设定格式是 <code>item name: icon name</code> ，其中 <code>item name</code> 与上一步所配置的菜单名字对应，<code>icon name</code> 是 Font Awesome 图标的 名字。而 <code>enable</code> 可用于控制是否显示图标，你可以设置成 <code>false</code> 来去掉图标。</li>
-</ol>
-<blockquote>
-<p>菜单图标配置示例</p>
-</blockquote>
-<pre><code>menu_icons:
-enable: true
-# Icon Mapping.
-home: home
-archives: archive
-about: user
-#categories: th
-#tags: tags
-#commonweal: heartbeat
-</code></pre><blockquote>
-</blockquote>
-<blockquote>
-</blockquote>
-<pre><code>注意：在菜单图标开启的情况下，如果菜单项与菜单未匹配（没有设置或者无效的 Font Awesome 图标名字） 的情况下，next 将会使用 &lt;i class=&quot;fa fa-exclamation-circle&quot;&gt;&lt;/i&gt; 作为图标。
-注意键值（如 home）的大小写要严格匹配
-</code></pre><blockquote>
-</blockquote>
-<ol start="4">
-<li>通过设定菜单的内容，实现效果。现在点击博客中的 <code>关于</code> 或 <code>about</code> ,还会显示 <code>Cannot GET /about/</code> ，因为还没有创建这个页面。在命令行中 <code>hexo new page &quot;about&quot;</code>，此时 <code>source</code> 文件夹中自动创建了 <code>about</code> 文件夹，此文件夹中包含 <code>index</code> 文件夹和 <code>index.md</code> 文件。根据自己需求修改 <code>.md</code> 文件，再次浏览博客的关于页面，就可以正常显示了。</li>
-</ol>
-<h4 id="设置侧栏"><a href="#设置侧栏" class="headerlink" title="设置侧栏"></a>设置侧栏</h4><p>默认情况下，侧栏仅在文章页面（ 拥有目录列表 ）时才显示，并放置于右侧位置。 可以通过修改 <code>主题配置文件</code> 中的 <code>sidebar</code> 字段来控制侧栏的行为。侧栏的设置包括两个部分，其一是侧栏的位置， 其二是侧栏显示的时机。</p>
-<ol>
-<li><p>设置侧栏的位置，修改 <code>sidebar.position</code> 的值，支持的选项有：</p>
-<ul>
-<li>left - 靠左</li>
-<li>right - 靠右</li>
-</ul>
-</li>
-</ol>
-<blockquote>
-<p>目前仅 Pisces Scheme 支持 position 配置。影响版本5.0.0及更低版本。</p>
-</blockquote>
-<pre><code>sidebar:
-position: left
-</code></pre><blockquote>
-</blockquote>
-<ol start="2">
-<li><p>设置侧栏显示的时机，修改 <code>sidebar.display</code> 的值，支持的选项有：</p>
-<ul>
-<li>post - 默认行为，在文章页面显示（ 拥有目录列表 ）</li>
-<li>always - 在所有页面中都显示</li>
-<li>hide - 在所有页面中都隐藏（ 可以手动展开 ）</li>
-<li>remove - 完全移除</li>
-</ul>
-</li>
-</ol>
-<blockquote>
-</blockquote>
-<pre><code>sidebar:
-display: post
-</code></pre><blockquote>
-</blockquote>
-<h4 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h4><p>编辑 <code>主题配置文件</code> ，修改字段 <code>avatar</code> ，值设置成头像的链接地址。其链接地址可以是：</p>
-<table>
-<thead>
-<tr>
-<th>地址</th>
-<th>值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>完整的互联网 URI</td>
-<td><a href="http://example.com/avatar.png" target="_blank" rel="noopener">http://example.com/avatar.png</a></td>
-</tr>
-<tr>
-<td>站内地址</td>
-<td>将头像放置主题目录下的 <code>source/uploads/</code> （新建 uploads 目录若不存在） 配置为：<code>avatar: /uploads/avatar.png</code> 或者 放置在 <code>source/images/</code> 目录下 配置为：<code>avatar: /images/avatar.png</code></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>头像设置示例</p>
-</blockquote>
-<pre><code>avatar: /images/usertx.png
-</code></pre><blockquote>
-</blockquote>
-<blockquote>
-<p>修改作者头像并旋转</p>
-</blockquote>
-<pre><code>.site-author-image {
-display: block;
-margin: 0 auto;
-padding: $site-author-image-padding;
-max-width: $site-author-image-width;
-height: $site-author-image-height;
-border: $site-author-image-border-width solid $site-author-image-border-color;
-
-/* 头像圆形 */
-border-radius: 80px;
--webkit-border-radius: 80px;
--moz-border-radius: 80px;
-box-shadow: inset 0 -1px 0 #333sf;
-
-/* 设置循环动画 [animation: (play)动画名称 (2s)动画播放时长单位秒或微秒 (ase-out)动画播放的速度曲线为以低速结束 
-    (1s)等待1秒然后开始动画 (1)动画播放次数(infinite为循环播放) ]*/
-
-
-/* 鼠标经过头像旋转360度 */
--webkit-transition: -webkit-transform 1.0s ease-out;
--moz-transition: -moz-transform 1.0s ease-out;
-transition: transform 1.0s ease-out;
-}
-
-img:hover {
-/* 鼠标经过停止头像旋转 
--webkit-animation-play-state:paused;
-animation-play-state:paused;*/
-
-/* 鼠标经过头像旋转360度 */
--webkit-transform: rotateZ(360deg);
--moz-transform: rotateZ(360deg);
-transform: rotateZ(360deg);
-}
-
-/* Z 轴旋转动画 */
-@-webkit-keyframes play {
-0% {
-    -webkit-transform: rotateZ(0deg);
-}
-100% {
-    -webkit-transform: rotateZ(-360deg);
-}
-}
-@-moz-keyframes play {
-0% {
-    -moz-transform: rotateZ(0deg);
-}
-100% {
-    -moz-transform: rotateZ(-360deg);
-}
-}
-@keyframes play {
-0% {
-    transform: rotateZ(0deg);
-}
-100% {
-    transform: rotateZ(-360deg);
-}
-</code></pre><blockquote>
-</blockquote>
-<h4 id="设置作者名称"><a href="#设置作者名称" class="headerlink" title="设置作者名称"></a>设置作者名称</h4><p>编辑 <code>站点配置文件</code> ，设置 <code>author</code> 为你的昵称。</p>
-<h4 id="站点描述"><a href="#站点描述" class="headerlink" title="站点描述"></a>站点描述</h4><p>编辑 <code>站点配置文件</code> ，设置 <code>description</code> 字段为你的站点描述。</p>
-<h4 id="next主题添加canvas背景"><a href="#next主题添加canvas背景" class="headerlink" title="next主题添加canvas背景"></a>next主题添加canvas背景</h4><p>编辑 <code>主题配置文件</code> ,众多的 <code>canvas_*</code>，中选择一个。漂亮~~ </p>
-
-          
+          Next主题介绍在 hexo 中有两份主要的配置文件，其名称都是 _config.yml。 其中，一份位于站点根目录下，主要包含 hexo 本身的配置（  以下简称为：站点配置文件）；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项（ 以下简称为：主题配置文件 ）。
+安装Ne
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/08/hexo搭建博客（三）-更换主题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1026,18 +669,19 @@ transform: rotateZ(360deg);
       
         
           
-            <h1 id="资源文件夹"><a href="#资源文件夹" class="headerlink" title="资源文件夹"></a>资源文件夹</h1><ol>
-<li><p>文章资源文件夹，想要在各个文章上展示的图片。（截图来自<a href="https://hexo.io/zh-cn/docs/asset-folders.html" title="hexo 资源文件夹" target="_blank" rel="noopener">hexo官网</a>）</p>
-<img src="/images/资源引入需要注意.jpg" title="[资源引入需要注意]">
-</li>
-<li><p>不可能在网页里用绝对路径，这样怎么部署到服务器上呢？所以必定是相对路径。Markdown本来的语法中，只要img和md文件的相对路径是对的就行，然而Hexo不知道对路径做了什么处理，你需要在source文件夹中新建一个images文件夹，然后把图片放在images文件夹里。路径也必须是这样的：<code>![Alt Text](../../images/**.jpg)</code></p>
-<img src="/images/图片引入方法.jpg" title="[图片引入方法]">
-</li>
-</ol>
-<img src="/images/图片引入方法详解.jpg" title="[图片引入方法详解]">
-<p>这样做的好处是，图片资源的管理比较有序。坏处是给初学者带来一定的疑惑，而且在markdown的编辑器里，无法实时预览。</p>
+          资源文件夹
+文章资源文件夹，想要在各个文章上展示的图片。（截图来自hexo官网）
 
-          
+
+不可能在网页里用绝对路径，这样怎么部署到服务器上呢？所以必定是相对路径。Markdown本来的语法中，只要img和md文件的相对路径是对的就行，然而Hexo不知道对路径做了什么处理，你需要在source文件夹中新建
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/08/hexo搭建博客（二）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1166,37 +810,15 @@ transform: rotateZ(360deg);
       
         
           
-            <h2 id="准备活"><a href="#准备活" class="headerlink" title="准备活"></a>准备活</h2><p>1、<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git安装</a>。命令前面带有$符号的，就是使用的git版本管理工具【分享一本在线版本git学习资料<a href="http://iissnan.com/progit/" target="_blank" rel="noopener">《Pro Git》</a>】<br>2、<a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js安装</a>。node -v 查看是否安装成功 若成功返回版本号<br>3、搭建hexo<br>4、能使用markdown语言编辑博客。（ <a href="http://www.markdown.cn/" target="_blank" rel="noopener">markdown</a>是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。如果不熟悉，可以使用<a href="https://daringfireball.net/projects/markdown/dingus" target="_blank" rel="noopener">在线编辑的学习工具</a> 练习练习。或者<a href="https://www.zybuluo.com/mdeditor?url=https%3A%2F%2Fwww.zybuluo.com%2Fstatic%2Feditor%2Fmd-help.markdown#12" target="_blank" rel="noopener">cmd 在线markdown 编辑阅读器</a>）</p>
-<h3 id="①-安装hexo-（-hexo-是高效的静态站点生成框架-通过-hexo-你可以轻松地使用-Markdown-编写文章）"><a href="#①-安装hexo-（-hexo-是高效的静态站点生成框架-通过-hexo-你可以轻松地使用-Markdown-编写文章）" class="headerlink" title="① 安装hexo （ hexo 是高效的静态站点生成框架,通过 hexo 你可以轻松地使用 Markdown 编写文章）"></a>① 安装hexo （ hexo 是高效的静态站点生成框架,通过 hexo 你可以轻松地使用 Markdown 编写文章）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure>
-<h3 id="②-查看是否安装成功"><a href="#②-查看是否安装成功" class="headerlink" title="② 查看是否安装成功"></a>② 查看是否安装成功</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
-<h3 id="③-进入已经存在的空文件夹名"><a href="#③-进入已经存在的空文件夹名" class="headerlink" title="③ 进入已经存在的空文件夹名"></a>③ 进入已经存在的空文件夹名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> myBlog</span><br></pre></td></tr></table></figure>
-<h3 id="④-初始化命令，终于可以在本地看到一些文件了-建立博客的所需的文件差不多了"><a href="#④-初始化命令，终于可以在本地看到一些文件了-建立博客的所需的文件差不多了" class="headerlink" title="④ 初始化命令，终于可以在本地看到一些文件了~建立博客的所需的文件差不多了"></a>④ 初始化命令，终于可以在本地看到一些文件了~建立博客的所需的文件差不多了</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
-<h3 id="⑤-在项目目录中安装node-modules（各种依赖包所在地）"><a href="#⑤-在项目目录中安装node-modules（各种依赖包所在地）" class="headerlink" title="⑤ 在项目目录中安装node_modules（各种依赖包所在地）"></a>⑤ 在项目目录中安装node_modules（各种依赖包所在地）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<h3 id="⑥-在本地服务器下运行"><a href="#⑥-在本地服务器下运行" class="headerlink" title="⑥ 在本地服务器下运行"></a>⑥ 在本地服务器下运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server   |（简写 hexo s）</span><br></pre></td></tr></table></figure>
-<p>若 INFO  Hexo is running at <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>. Press Ctrl+C to stop.<br> INFO表明hexo server已经启动了，在浏览器中打开<a href="http://localhost:4000/，这时可以看到hexo已为你生成了一篇blog。" target="_blank" rel="noopener">http://localhost:4000/，这时可以看到hexo已为你生成了一篇blog。</a></p>
-<h2 id="在疑惑中前行"><a href="#在疑惑中前行" class="headerlink" title="在疑惑中前行~~"></a>在疑惑中前行~~</h2><h3 id="⑦-如何自己添加文章？"><a href="#⑦-如何自己添加文章？" class="headerlink" title="⑦ 如何自己添加文章？"></a>⑦ 如何自己添加文章？</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"filename"</span>  |（简写 hexo n <span class="string">"filename"</span>）</span><br></pre></td></tr></table></figure>
-<p>会自动创建一个md文件，在文件里编写博客<br>这样就会在博客目录下E:\workSpace\swiper-test\A-personalBlog中生成相应的 filename.md文件<br>在hexo server启动后，刷新<a href="http://localhost:4000/，可以看到已生成了一篇新文章‘filename’" target="_blank" rel="noopener">http://localhost:4000/，可以看到已生成了一篇新文章‘filename’</a></p>
-<h3 id="⑧-如何将添加的文章，通过博客地址预览？"><a href="#⑧-如何将添加的文章，通过博客地址预览？" class="headerlink" title="⑧ 如何将添加的文章，通过博客地址预览？"></a>⑧ 如何将添加的文章，通过博客地址预览？</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate |（简写 hexo g）</span><br></pre></td></tr></table></figure>
-<p>生成静态页面至public目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server   |（简写 hexo s）</span><br></pre></td></tr></table></figure></p>
-<p>开启预览访问端口（默认端口4000，‘ctrl + c’关闭server）</p>
-<h3 id="⑨-如何部署到github"><a href="#⑨-如何部署到github" class="headerlink" title="⑨ 如何部署到github"></a>⑨ 如何部署到github</h3><h5 id="1、首先，使用前需要有一个github账号，之后创建一个repository"><a href="#1、首先，使用前需要有一个github账号，之后创建一个repository" class="headerlink" title="1、首先，使用前需要有一个github账号，之后创建一个repository"></a>1、首先，使用前需要有一个github账号，之后创建一个repository</h5><h5 id="2、命名为‘username-github-io’，这个名字是固定的"><a href="#2、命名为‘username-github-io’，这个名字是固定的" class="headerlink" title="2、命名为‘username.github.io’，这个名字是固定的"></a>2、命名为‘username.github.io’，这个名字是固定的</h5><h5 id="3、运行"><a href="#3、运行" class="headerlink" title="3、运行"></a>3、运行</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git –save</span><br></pre></td></tr></table></figure>
-<h5 id="4、上述操作都完成后，只需要将-config-yml文件翻到最下面，改成："><a href="#4、上述操作都完成后，只需要将-config-yml文件翻到最下面，改成：" class="headerlink" title="4、上述操作都完成后，只需要将_config.yml文件翻到最下面，改成："></a>4、上述操作都完成后，只需要将_config.yml文件翻到最下面，改成：</h5><p>deploy:<br>   type: git<br>   repository: <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:username/username.github.io.git<br>   branch: master<br>  (注1：type等跟着的冒号后面需要有一个半角英文空格，否则会报错。注2：要使用SSH <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:hYanDou/hYanDou.github.io)</p>
-<h5 id="5、然后部署"><a href="#5、然后部署" class="headerlink" title="5、然后部署"></a>5、然后部署</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy |（简写 hexo d）</span><br></pre></td></tr></table></figure>
-<h5 id="6、连接github"><a href="#6、连接github" class="headerlink" title="6、连接github"></a>6、连接github</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"你的账号名"</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.email <span class="string">"你的邮箱名"</span></span><br></pre></td></tr></table></figure>
-<h5 id="7、网站代码上传github"><a href="#7、网站代码上传github" class="headerlink" title="7、网站代码上传github"></a>7、网站代码上传github</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> myBlog</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
-<p>（copy all files in ‘hexo’ folder here）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">'first commit'</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin <span class="string">'https://github.com/hYanDou/hYanDou.github.io.git'</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
-<h5 id="8、在浏览器中访问https-hYanDou-github-io就可以看到自己的博客啦"><a href="#8、在浏览器中访问https-hYanDou-github-io就可以看到自己的博客啦" class="headerlink" title="8、在浏览器中访问https://hYanDou.github.io就可以看到自己的博客啦"></a>8、在浏览器中访问<a href="https://hYanDou.github.io">https://hYanDou.github.io</a>就可以看到自己的博客啦</h5><h3 id="⑩-每次添加文章后：最后命令行中依次执行"><a href="#⑩-每次添加文章后：最后命令行中依次执行" class="headerlink" title="⑩ 每次添加文章后：最后命令行中依次执行"></a>⑩ 每次添加文章后：最后命令行中依次执行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean    |清除上一次编译产生的文件</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g        |（简写 hexo g） 重新编译</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy   |同步到github</span><br></pre></td></tr></table></figure>
-<h4 id="再将代码同步github"><a href="#再将代码同步github" class="headerlink" title="再将代码同步github"></a>再将代码同步github</h4><p>$ git add .<br>$ git commit -m ‘first commit’<br>$ git push -u origin master</p>
-<h3 id="在搭建的时候的遇坑"><a href="#在搭建的时候的遇坑" class="headerlink" title="在搭建的时候的遇坑"></a>在搭建的时候的遇坑</h3><p>1、jQuery is not defined，解决：<br>要改变js/css，可以在hexo的主题内<code>layout</code>目录中对应的.ejs文件里添加或修改。比如默认的landscape主题，若想要把css添加到每一页中的话，可以把它加在<code>themes/landscape/layout/_partial/head.ejs</code>中。若想修改固定引入的jquery的不正确路径，<code>&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js&quot;&gt;&lt;/script&gt;</code>改成（ <a href="http://www.jq22.com/cdn/" target="_blank" rel="noopener">百度的jquery的cdn路径</a> ）<code>&lt;script src=&quot;http://libs.baidu.com/jquery/2.0.0/jquery.min.js&quot;&gt;&lt;/script&gt;</code></p>
-
-          
+          准备活1、git安装。命令前面带有$符号的，就是使用的git版本管理工具【分享一本在线版本git学习资料《Pro Git》】2、node.js安装。node -v 查看是否安装成功 若成功返回版本号3、搭建hexo4、能使用markdown语言编辑博客。（ markdown是一种可以使用普通文本编辑
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/08/hexo搭建博客/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1325,17 +947,15 @@ transform: rotateZ(360deg);
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/07/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
